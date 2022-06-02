@@ -93,9 +93,7 @@ WHERE users.id = 30 AND educations.status = 'finished'
 ORDER BY courses.name LIMIT 2 OFFSET 1 // if you use the params object 
 ```
 
-
 # Example of use InsertQuery
-
 
 ```js
 const insert = {
@@ -113,7 +111,23 @@ const insert = {
 }
 
 const result = InsertQuery(insert)
-
 result: 
+
 INSERT INTO table_name ("name", "age", "car") VALUES (Lucas, 25, Opala) WHERE id = 1
+```
+
+# Example of use DeleteQuery
+
+```js
+const delete_ = {
+
+    operation: 'delete',
+    table: 'table_name',
+    where: 'id = 1'
+}
+
+const result = DeleteQuery(delete_)
+result: 
+
+DELETE FROM table_name WHERE id = 1
 ```
