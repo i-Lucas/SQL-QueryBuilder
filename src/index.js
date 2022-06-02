@@ -15,7 +15,7 @@ const insert = {
     }
 }
 
-//console.log(InsertQuery(insert));
+console.log(InsertQuery(insert));
 
 const select = {
 
@@ -29,15 +29,15 @@ const select = {
         as: ['writer', 'recipient'],
         join: ['users writers', 'users recipients'],
         on: ['writers.id = testimonials."writerId"', 'recipients.id = testimonials."recipientId"'],
-        where: ''
+        where: 'id = 1'
     },
     params: {
 
-        enabled: true,
+        enabled: false,
         limit: 5,
         offset: 1,
         order: 'id',
     }
 }
 
-console.log(SelectQuery(select));
+//console.log(SelectQuery(select));

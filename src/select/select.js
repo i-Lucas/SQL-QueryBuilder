@@ -96,8 +96,8 @@ export default function SelectQuery(query) {
 
         if (query.params) {
             if(query.params.enabled) {
+                query.params.order !== '' ? result += ` ORDER BY ${query.params.order}` : result += '';
                 result += ` LIMIT ${query.params.limit} ${query.params.offset ? 'OFFSET ' + query.params.offset : ''}`;
-                query.params.order ? result += ` ORDER BY ${query.params.order}` : result += '';
             }
         }
         return result;
