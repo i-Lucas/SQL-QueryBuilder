@@ -1,5 +1,5 @@
 {
-  "name": "query-builder-project",
+  "name": "sql-querybuilder-project",
   "version": "1.0.0",
   "description": "build sql query strings dynamically",
   "main": "index.js",
@@ -7,7 +7,12 @@
   "scripts": {
     "start": "node ./src/index.js"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i-Lucas/SQL-QueryBuilder.git"
+  },
+  "keywords": ["sql", "query", "builder", "dynamic", "sql-querybuilder", "sql builder"],
   "author": "Lucas Emmanuel",
-  "license": "ISC"
+  "license": "ISC",
+  "homepage": "https://github.com/i-Lucas/SQL-QueryBuilder#readme"
 }
