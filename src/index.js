@@ -1,5 +1,6 @@
 import InsertQuery from './insert/insert.js';
 import SelectQuery from './select/select.js';
+import DeleteQuery from './delete/delete.js';
 
 const insert = {
 
@@ -15,7 +16,7 @@ const insert = {
     }
 }
 
-console.log(InsertQuery(insert));
+//console.log(InsertQuery(insert));
 
 const select = {
 
@@ -42,3 +43,12 @@ const select = {
 }
 
 //console.log(SelectQuery(select));
+
+const delete_ = {
+
+    operation: 'delete',
+    table: 'table_name',
+    where: 'id = 1'
+}
+
+console.log(DeleteQuery(delete_));
