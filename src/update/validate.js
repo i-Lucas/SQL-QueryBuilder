@@ -1,11 +1,8 @@
-export default function ValidateInsertQuery(query) {
+export default function ValidateUpdateQuery(query) {
 
-    if (typeof query !== 'object') { throw new Error('query is not an object\n\n') };
-
+    let err = `on UpdateQuery: `;
     const properties = [{ operation: 'string' }, { table: 'string' }, { data: 'object' }];
-    const data_properties = [{ where: 'string' }, { fields: 'array' }, { types: 'array' }, { values: 'array' }];
-
-    let err = `on InsertQuery: `;
+    const data_props = [{ where: 'string' }, { fields: 'array' }, { types: 'array' }, { values: 'array' }];
 
     for (let i in properties) {
 
@@ -22,10 +19,10 @@ export default function ValidateInsertQuery(query) {
         }
     }
 
-    for (let i in data_properties) {
+    for (let i in data_props) {
 
-        const property = Object.keys(data_properties[i])[0];
-        const type = data_properties[i][property];
+        const property = Object.keys(data_props[i])[0];
+        const type = data_props[i][property];
         const isArray = (prop) => Array.isArray(prop);
 
         if (!query.data.hasOwnProperty(property)) {
@@ -44,9 +41,10 @@ export default function ValidateInsertQuery(query) {
 
     query.data.values.map((value, index) => {
         if (query.data.types[index] !== typeof value) {
-            return console.error(`typeof '${value}' is not a '${query.data.types[index]}'`);
+            err += `typeof '${value}' is not a '${query.data.types[index]}'\n`;
+            throw new Error(err);
         }
     });
 
-    return true
+    return true;
 }

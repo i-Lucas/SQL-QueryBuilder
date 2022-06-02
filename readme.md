@@ -131,3 +131,25 @@ result:
 
 DELETE FROM table_name WHERE id = 1
 ```
+
+* Example of use UpdateQuery
+
+```js
+const update = {
+
+    operation: 'update',
+    table: 'table_name',
+
+    data: {
+
+        fields: ['"naMe"', 'age', 'car'],
+        types: ['string', 'number', 'string'],
+        values: ["'Lucas'", 25, "'Opala'"],
+        where: 'id = 1'
+    }
+}
+
+let result = UpdateQuery(update)
+result:
+UPDATE table_name SET "naMe" = 'Lucas', age = 25, car = 'Opala' WHERE id = 1
+```

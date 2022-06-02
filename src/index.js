@@ -1,6 +1,7 @@
 import InsertQuery from './insert/insert.js';
 import SelectQuery from './select/select.js';
 import DeleteQuery from './delete/delete.js';
+import UpdateQuery from './update/update.js';
 
 const insert = {
 
@@ -51,4 +52,20 @@ const delete_ = {
     where: 'id = 1'
 }
 
-console.log(DeleteQuery(delete_));
+//console.log(DeleteQuery(delete_));
+
+const update = {
+
+    operation: 'update',
+    table: 'table_name',
+
+    data: {
+
+        fields: ['"naMe"', 'age', 'car'],
+        types: ['string', 'number', 'string'],
+        values: ["'Lucas'", 25, "'Opala'"],
+        where: 'id = 1'
+    }
+}
+
+console.log(UpdateQuery(update));
