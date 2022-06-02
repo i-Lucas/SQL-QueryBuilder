@@ -40,23 +40,27 @@ export default function SelectQuery(query) {
 
     if (ValidateSelectQuery(query)) {
 
-        let fields = ``
+        let where = '';
+        let data_disabled = query.all
+        where = data_disabled ? `${query.where}` : `${query.data.where}`;
+
+        let fields = `*`
         let JoinOn = '';
         let result = `SELECT `;
 
-        query.all ?
-            fields = `* ` :
+        if (!data_disabled) {
             fields = query.data.fields.map((field, index) => {
                 if (query.data.as.length > 0) { return `${field} ${query.data.as[index] ? `AS "${query.data.as[index]}"` : ''}`; }
                 else { return field; }
             }).join(', ');
 
-        query.data.join.length > 0 ?
-            JoinOn = query.data.join.map((join, index) => {
-                return `JOIN ${join} ON ${query.data.on[index]}`
-            }).join(' ') : JoinOn = '';
+            query.data.join.length > 0 ?
+                JoinOn = query.data.join.map((join, index) => {
+                    return `JOIN ${join} ON ${query.data.on[index]}`
+                }).join(' ') : JoinOn = '';
+        }
 
-        result += fields + ` FROM ${query.from} ${JoinOn} ${query.data.where !== '' ? `WHERE ${query.data.where}` : ''}`;
+        result += `${fields} FROM ${query.from} ${JoinOn} WHERE ${where}`;
 
         if (query.params) {
             query.params.order !== '' ? result += ` ORDER BY ${query.params.order}` : result += '';

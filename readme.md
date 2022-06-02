@@ -12,16 +12,8 @@ const simple = {
 
     operation: 'select',
     from: 'table_name',
-    all: true,
-
-    data: {
-
-        fields: [],
-        as: [],
-        join: [],
-        on: [],
-        where: 'id = 1'
-    }
+    all: true, // fetching everything from a table
+    where: 'id = 1' // where is required
 }
 
 const result = SelectQuery(simple)
@@ -37,6 +29,7 @@ const example = {
     from: 'users',
     all: false,
 
+    // in this case data is required
     data: {
 
         fields: ['users.id', 'users.name', 'users.email'],
@@ -45,6 +38,7 @@ const example = {
         on: [],
         where: ''
     },
+    // params is optional
     params: {
 
         order: 'name',
@@ -68,8 +62,8 @@ const complex = {
 
     operation: 'select',
     from: 'courses',
-    all: false, // true to select all fields
-
+    all: false,
+    
     data: {
 
         fields: ['users.id', 'users.name', 'courses.name', 'schools.name', 'educations."endDate"'],
@@ -96,7 +90,5 @@ FROM courses JOIN educations ON courses.id = educations."courseId"
 JOIN users ON educations."userId" = users.id 
 JOIN schools ON schools.id = educations."schoolId" 
 WHERE users.id = 30 AND educations.status = 'finished'
-
-// if you use the params object the line below would be inserted in your query
-ORDER BY courses.name LIMIT 2 OFFSET 1
+ORDER BY courses.name LIMIT 2 OFFSET 1 // if you use the params object 
 ```

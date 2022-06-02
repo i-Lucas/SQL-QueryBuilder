@@ -21,22 +21,24 @@ const select = {
 
     operation: 'select',
     from: 'table_name',
-    all: false, // true to SELECT * FROM ...
-
-    data: {
-
-        fields: ['testimonials.id', 'writers.name', 'recipients.name', 'testimonials.message'],
-        as: ['writer', 'recipient'],
-        join: ['users writers', 'users recipients'],
-        on: ['writers.id = testimonials."writerId"', 'recipients.id = testimonials."recipientId"'],
-        where: 'id = 1'
-    },
-    params: {
-
-        limit: 5,
-        offset: 1,
-        order: 'id',
-    }
+    all: true, // true to SELECT * FROM ...
+    where: 'id = 1',
+    /*
+        data: {
+    
+            fields: ['testimonials.id', 'writers.name', 'recipients.name', 'testimonials.message'],
+            as: ['writer', 'recipient'],
+            join: ['users writers', 'users recipients'],
+            on: ['writers.id = testimonials."writerId"', 'recipients.id = testimonials."recipientId"'],
+            where: 'true'
+        },
+        /*
+        params: {
+    
+            limit: 5,
+            offset: 1,
+            order: 'id',
+        }*/
 }
 
-//console.log(SelectQuery(select));
+console.log(SelectQuery(select));
