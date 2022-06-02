@@ -95,10 +95,8 @@ export default function SelectQuery(query) {
         result += fields + `FROM ${query.from} ${JoinOn} ${query.data.where !== '' ? `WHERE ${query.data.where}` : ''}`;
 
         if (query.params) {
-            if(query.params.enabled) {
-                query.params.order !== '' ? result += ` ORDER BY ${query.params.order}` : result += '';
-                result += ` LIMIT ${query.params.limit} ${query.params.offset ? 'OFFSET ' + query.params.offset : ''}`;
-            }
+            query.params.order !== '' ? result += ` ORDER BY ${query.params.order}` : result += '';
+            result += ` LIMIT ${query.params.limit} ${query.params.offset ? 'OFFSET ' + query.params.offset : ''}`;
         }
         return result;
     }

@@ -5,7 +5,7 @@ export default function ValidateInsertQuery(query) {
     const properties = [{ operation: 'string' }, { table: 'string' }, { data: 'object' }];
     const data_properties = [{ fields: 'array' }, { types: 'array' }, { values: 'array' }, { where: 'string' }];
 
-    let err = `on INSERT: `;
+    let err = `on InsertQuery: `;
 
     for (let i in properties) {
 

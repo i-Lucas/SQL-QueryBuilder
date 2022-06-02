@@ -15,7 +15,7 @@ const insert = {
     }
 }
 
-console.log(InsertQuery(insert));
+//console.log(InsertQuery(insert));
 
 const select = {
 
@@ -33,11 +33,10 @@ const select = {
     },
     params: {
 
-        enabled: false,
         limit: 5,
         offset: 1,
         order: 'id',
     }
 }
 
-//console.log(SelectQuery(select));
+console.log(SelectQuery(select));

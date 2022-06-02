@@ -4,9 +4,9 @@ export default function ValidateSelectQuery(query) {
 
     const properties = [{ operation: 'string' }, { from: 'string' }, { all: 'boolean' }, { data: 'object' }];
     const data_props = [{ fields: 'array' }, { as: 'array' }, { join: 'array' }, { on: 'array' }, { where: 'string' }];
-    const params_props = [{ enabled: 'boolean' }, { limit: 'number' }, { offset: 'number' }, { order: 'string' }];
+    const params_props = [{ limit: 'number' }, { offset: 'number' }, { order: 'string' }];
 
-    let err = `on SELECT: `;
+    let err = `on SelectQuery: `;
 
     for (let i in properties) {
 
@@ -44,22 +44,21 @@ export default function ValidateSelectQuery(query) {
     }
 
     if (query.params) {
-        if (query.params.enabled) {
-            for (let i in params_props) {
+        for (let i in params_props) {
 
-                const property = Object.keys(params_props[i])[0];
-                const type = params_props[i][property];
+            const property = Object.keys(params_props[i])[0];
+            const type = params_props[i][property];
 
-                if (!query.params.hasOwnProperty(property)) {
-                    err += `query.params does not have the property ${property}.\n`;
-                    throw new Error(err);
-                }
-                if (typeof query.params[property] !== type) {
-                    err += `query.params.${property} is not a ${type}.\n`;
-                    throw new Error(err);
-                }
+            if (!query.params.hasOwnProperty(property)) {
+                err += `query.params does not have the property ${property}.\n`;
+                throw new Error(err);
+            }
+            if (typeof query.params[property] !== type) {
+                err += `query.params.${property} is not a ${type}.\n`;
+                throw new Error(err);
             }
         }
     }
+
     return true
 }
