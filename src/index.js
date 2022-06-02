@@ -39,4 +39,4 @@ const select = {
     }
 }
 
-console.log(SelectQuery(select));
+//console.log(SelectQuery(select));
