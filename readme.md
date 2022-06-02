@@ -63,7 +63,7 @@ const complex = {
     operation: 'select',
     from: 'courses',
     all: false,
-    
+
     data: {
 
         fields: ['users.id', 'users.name', 'courses.name', 'schools.name', 'educations."endDate"'],
@@ -91,4 +91,29 @@ JOIN users ON educations."userId" = users.id
 JOIN schools ON schools.id = educations."schoolId" 
 WHERE users.id = 30 AND educations.status = 'finished'
 ORDER BY courses.name LIMIT 2 OFFSET 1 // if you use the params object 
+```
+
+
+# Example of use InsertQuery
+
+
+```js
+const insert = {
+
+    operation: 'insert',
+    table: 'table_name',
+
+    data: {
+
+        fields: ['name', 'age', 'car'],
+        types: ['string', 'number', 'string'],
+        values: ["Lucas", 25, "Opala"],
+        where: 'id = 1'
+    }
+}
+
+const result = InsertQuery(insert)
+
+result: 
+INSERT INTO table_name ("name", "age", "car") VALUES (Lucas, 25, Opala) WHERE id = 1
 ```

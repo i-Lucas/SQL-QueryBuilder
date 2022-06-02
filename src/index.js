@@ -11,11 +11,11 @@ const insert = {
         fields: ['name', 'age', 'car'],
         types: ['string', 'number', 'string'],
         values: ["Lucas", 25, "Opala"],
-        where: ''
+        where: 'id = 1'
     }
 }
 
-//console.log(InsertQuery(insert));
+console.log(InsertQuery(insert));
 
 const select = {
 
@@ -41,4 +41,4 @@ const select = {
         }*/
 }
 
-console.log(SelectQuery(select));
+//console.log(SelectQuery(select));
