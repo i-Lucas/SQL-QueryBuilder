@@ -1,0 +1,13 @@
+{
+  "name": "query-builder-project",
+  "version": "1.0.0",
+  "description": "build sql query strings dynamically",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "keywords": [],
+  "author": "Lucas Emmanuel",
+  "license": "ISC"
+}
