@@ -1,5 +1,5 @@
 {
-  "name": "sql-querybuilder-project",
+  "name": "sql-querybuilder-tool",
   "version": "1.0.0",
   "description": "build sql query strings dynamically",
   "main": "index.js",

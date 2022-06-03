@@ -6,9 +6,9 @@
 # Example of use SelectQuery
 
 ```js
-npm i sql-querybuilder-project
+npm i sql-querybuilder-tool
 
-import QueryBuilder from 'sql-querybuilder-project/src/query/query.js';
+import QueryBuilder from 'sql-querybuilder-tool/src/query/query.js';
 ```
 
 * A simple select
