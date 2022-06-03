@@ -22,7 +22,7 @@ const simple = {
     where: 'id = 1' // where is required
 }
 
-const result = SelectQuery(simple)
+const result = BuildQuery(simple)
 result: SELECT * FROM table_name WHERE id = 1
 ```
 
@@ -53,7 +53,7 @@ const example = {
     }
 }
 
-const result = SelectQuery(example)
+const result = BuildQuery(example)
 result: 
 
 SELECT 
@@ -87,7 +87,7 @@ const complex = {
     }*/
 }
 
-const result = SelectQuery(complex)
+const result = BuildQuery(complex)
 result:
 
 SELECT 
@@ -116,7 +116,7 @@ const insert = {
     }
 }
 
-const result = InsertQuery(insert)
+const result = BuildQuery(insert)
 result: 
 
 INSERT INTO table_name ("name", "age", "car") VALUES (Lucas, 25, Opala) WHERE id = 1
@@ -132,7 +132,7 @@ const delete_ = {
     where: 'id = 1'
 }
 
-const result = DeleteQuery(delete_)
+const result = BuildQuery(delete_)
 result: 
 
 DELETE FROM table_name WHERE id = 1
@@ -155,7 +155,7 @@ const update = {
     }
 }
 
-let result = UpdateQuery(update)
+let result = BuildQuery(update)
 result:
 UPDATE table_name SET "naMe" = 'Lucas', age = 25, car = 'Opala' WHERE id = 1
 ```
