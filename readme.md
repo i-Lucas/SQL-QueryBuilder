@@ -5,6 +5,12 @@
 
 # Example of use SelectQuery
 
+```js
+npm i sql-querybuilder-project
+
+import QueryBuilder from 'sql-querybuilder-project/src/query/query.js';
+```
+
 * A simple select
 
 ```js
