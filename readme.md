@@ -138,7 +138,7 @@ result:
 DELETE FROM table_name WHERE id = 1
 ```
 
-* Example of use UpdateQuery
+# Example of use UpdateQuery
 
 ```js
 const update = {
